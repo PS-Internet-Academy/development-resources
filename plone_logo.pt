@@ -6,25 +6,22 @@
       i18n:domain="plone"
       tal:omit-tag="">
 
-<div class="smart-header" metal:define-macro="portal_logo">
+<div class="smart-header" metal:define-macro="portal_logo"
+  tal:define="pstate     here/@@plone_portal_state;">
   <ul class="smart-header">
     <li class="logo">
         <a 
             id="portal-logo"
             title="Home"
             accesskey="1"
-            tal:attributes="href view/navigation_root_url;
-                            title view/navigation_root_title"
-            i18n:domain="plone"
+            tal:attributes="href view/navigation_root_url;"
             i18n:attributes="title">
             
             <img src="logo.jpg" alt="" tal:replace="structure view/logo_tag" />
         </a>
     </li>
-    <li class="title" tal:content="view/site_title|nothing">Title</li>
+    <li class="title"><h1 tal:content="pstate/portal_title">Title</h1></li>
   </ul>
-  <div class="site_description" tal:content="view/site_descr|nothing">Description</div>
-
 </div>
 
 </html>
